@@ -2,16 +2,26 @@
 
   <PropertyGroup>
     <IsPackable>true</IsPackable>
-    <Description>A .NET Standard FFMpeg/FFProbe wrapper for easily integrating media analysis and conversion into your .NET applications</Description>
+    <Description>A .NET Standard FFMpeg/FFProbe wrapper for easily integrating media analysis and conversion into your .NET applications (modified by xyb from https://github.com/rosenbjerg/FFMpegCore)</Description>
     <PackageVersion>5.1.0</PackageVersion>
     <PackageOutputPath>../nupkg</PackageOutputPath>
     <PackageReleaseNotes>
     </PackageReleaseNotes>
+    <PackageId>XYB.FFMpegCore</PackageId>
     <PackageTags>ffmpeg ffprobe convert video audio mediafile resize analyze muxing</PackageTags>
-    <Authors>Malte Rosenbjerg, Vlad Jerca, Max Bagryantsev</Authors>
+    <PackageProjectUrl>https://github.com/xieyubo/FFMpegCore</PackageProjectUrl>
+    <Authors>Malte Rosenbjerg, Vlad Jerca, Max Bagryantsev, xyb</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <MinVerAutoIncrement>Disable</MinVerAutoIncrement>
+    <MinVerDefaultPreReleaseIdentifiers>preview</MinVerDefaultPreReleaseIdentifiers>
   </PropertyGroup>
-
+  <Target Name="PostMinVer" AfterTargets="MinVer">
+    <PropertyGroup>
+      <PackageVersion>$(PackageVersion.Replace("-preview", ""))</PackageVersion>
+      <Version>$(PackageVersion)</Version>
+      <FileVersion>$(PackageVersion)</FileVersion>
+    </PropertyGroup>
+  </Target>
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
@@ -19,6 +29,10 @@
   <ItemGroup>
     <PackageReference Include="Instances" Version="3.0.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.3" />
+    <PackageReference Include="XYB.MinVer" Version="4.3.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
