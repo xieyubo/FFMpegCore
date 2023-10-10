@@ -9,7 +9,6 @@
     </PackageReleaseNotes>
     <PackageId>XYB.FFMpegCore</PackageId>
     <PackageTags>ffmpeg ffprobe convert video audio mediafile resize analyze muxing</PackageTags>
-    <PackageProjectUrl>https://github.com/xieyubo/FFMpegCore</PackageProjectUrl>
     <Authors>Malte Rosenbjerg, Vlad Jerca, Max Bagryantsev, xyb</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <MinVerAutoIncrement>Disable</MinVerAutoIncrement>
